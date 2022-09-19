@@ -47,9 +47,10 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
-          file: api_yamdb/Dockerfile
-          push: True
-          tags: mitch2424/api_yamdb:latest
+          context: ./api_yamdb
+          file: ./api_yamdb/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
   
   deploy:
     name: Deploy app on server
