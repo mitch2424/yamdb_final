@@ -5,7 +5,7 @@
 Проект позволяет собирать и отзывы о различных произведениях (фильмы, книги, музыки)  
   
 ## Описание проекта  
-Собранный [проект Yamdb_API](https://github.com/mitch2424/Yamdb_API) в docker-compose и размещен на [Doker Hub](https://hub.docker.com/r/mitch2424/yamdb_last).
+Собранный [проект Yamdb_API](https://github.com/mitch2424/Yamdb_API) в docker-compose и размещен на [Docker Hub](https://hub.docker.com/r/mitch2424/yamdb_last).
 
 Приложение настроено на принципах Continuous Integration и Continuous Deployment.
 
