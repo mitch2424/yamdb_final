@@ -49,7 +49,7 @@ jobs:
         with:
           file: api_yamdb/Dockerfile
           push: True
-          tags: ritehist/api_yamdb:latest
+          tags: mitch2424/api_yamdb:latest
   
   deploy:
     name: Deploy app on server
