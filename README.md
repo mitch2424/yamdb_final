@@ -1,6 +1,6 @@
 # Проект YamDB
 
-https://github.com/mitch2424/yamdb_final/actions/workflows/yamdb_final_workflow.yaml/badge.svg
+[![yamdb_final_workflow](https://github.com/mitch2424/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg)](https://github.com/mitch2424/yamdb_final/actions/workflows/yamdb_workflow.yaml)
 
 Проект позволяет собирать и отзывы о различных произведениях (фильмы, книги, музыки)  
   
