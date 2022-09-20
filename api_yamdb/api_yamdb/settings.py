@@ -10,7 +10,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='secret_key')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['51.250.93.237', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
@@ -102,7 +102,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'users.User'
 
