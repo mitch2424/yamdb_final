@@ -73,8 +73,8 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-### Через Doker
-Установите и настройте [Doker](https://www.docker.com/products/docker-desktop/).
+### Через Docker
+Установите и настройте [Docker](https://www.docker.com/products/docker-desktop/).
 Собрать контейнеры можно автоматическом режиме для этого достаточно клонировать только папку infra и заменив в файле docker-compose.yaml:
 
     build:
