@@ -6,7 +6,10 @@
   
 ## Описание проекта  
 Собранный [проект Yamdb_API](https://github.com/mitch2424/Yamdb_API) в docker-compose и размещен на [Docker Hub](https://hub.docker.com/r/mitch2424/yamdb_last).
-
+51.250.93.237
+http://51.250.93.237/admin/
+http://51.250.93.237/redoc/
+http://51.250.93.237/api/v1/
 Приложение настроено на принципах Continuous Integration и Continuous Deployment.
 
 После пуша в main:
