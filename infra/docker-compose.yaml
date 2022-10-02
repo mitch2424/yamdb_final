@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 services:
   db:
     image: postgres:13.0-alpine
@@ -7,7 +7,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: vatut007/apiyamdb:latest 
+    image: mitch2424/api_yamdb:latest
     restart: always
     volumes:
       - static_value:/app/static/
