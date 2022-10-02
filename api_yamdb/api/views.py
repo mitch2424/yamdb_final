@@ -1,32 +1,29 @@
+from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
-from django_filters.rest_framework import DjangoFilterBackend
-from django.db.models import Avg
 from django.db import IntegrityError
-from rest_framework import status
+from django.db.models import Avg
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import mixins, status, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
-from rest_framework.permissions import AllowAny
 from rest_framework.exceptions import ParseError
 from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
-from django.contrib.auth.tokens import default_token_generator
-from rest_framework.permissions import (IsAuthenticated,
+from rest_framework.permissions import (AllowAny, IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-from rest_framework import mixins, viewsets
+from reviews.models import Category, Genre, Review, Title
+from users.models import User
+
+from api_yamdb.settings import DEFAULT_FROM_EMAIL
 
 from .filters import TitleFilter
-from reviews.models import Category, Genre, Review
 from .mixins import CreateListDestroyMixins
-from users.models import User
-from reviews.models import Title
 from .permissions import IsAdministrator, IsOwnerOrReadOnly, IsReadOnly
 from .serializers import (CategorySerializer, CommentSerializer,
                           GenreSerializer, ReviewSerializer,
                           TitlePostPatchSerializer, TitleSerializer,
-                          UserRegSerializer, UserSerializer,
-                          TokenSerializer)
-from api_yamdb.settings import DEFAULT_FROM_EMAIL
+                          TokenSerializer, UserRegSerializer, UserSerializer)
 
 SUBJECT = 'YaMDb: код подверждения'
 MESSAGE = 'Ваш код подтверждения - {}'
@@ -41,10 +38,9 @@ class CreateViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
 
 def get_object_or_400(model, **kwargs):
     try:
-        instance = model.objects.get(**kwargs)
+        model.objects.get(**kwargs)
     except Exception as error:
         raise ParseError(error)
-    return instance
 
 
 class CategoryViewSet(CreateListDestroyMixins):
@@ -125,8 +121,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         title = get_object_or_404(Title, id=self.kwargs['id'])
-        queryset = title.reviews.all()
-        return queryset
+        return title.reviews.all()
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
