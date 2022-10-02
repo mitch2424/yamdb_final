@@ -60,7 +60,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             sudo docker compose down
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
