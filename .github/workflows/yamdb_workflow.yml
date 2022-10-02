@@ -64,8 +64,6 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             sudo docker compose down
-            sudo docker-compose rm -f web
-            sudo rm -f .env
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
