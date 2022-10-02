@@ -52,7 +52,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: pbuild_and_push_to_docker_hub
+    needs: build_and_push_to_docker_hub
     if: github.ref == 'refs/heads/master'
     steps:
       - name: executing remote ssh commands to deploy
