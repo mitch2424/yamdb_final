@@ -39,7 +39,7 @@ class TitlePostPatchSerializer(serializers.ModelSerializer):
         model = Title
 
     def validate_year(self, value):
-        year = datetime.today().year
+        year = datetime.now().year
         if year < value:
             raise serializers.ValidationError('Проверьте год выпуска!')
         return value
