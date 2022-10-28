@@ -32,10 +32,7 @@ def check_db(model):
         print(f'В базе уже есть объекты {model.__name__}!')
         result = input('Для удаления введите "Y" или что-нибудь '
                        'другое для отмены и выхода: ')
-    if result == 'Y' or result == 'y':
-        return delete_objects(model)
-    else:
-        return sys.exit(0)
+    return delete_objects(model) if result in ['Y', 'y'] else sys.exit(0)
 
 
 def objects_creator(model, row):
